@@ -1,0 +1,38 @@
+<!-- 可用组件：https://mp.weixin.qq.com/debug/wxadoc/dev/component/ -->
+<view class="container" style='width: 100%; height: {{indexImageHeight}}px;'>
+  <!--<image class='index-pic' src='{{bakgroundImage}}' style='width: 100%; height: {{indexImageHeight}}px;'></image>-->
+  <!--视屏区域-->
+  <view class='video-area' style='width={{ videoWidth }}px; height:{{ videoHeight }}px'>
+    <!--内容包裹层-->
+    <view class='animated fadeInDown video-area-work' style='height:{{ videoHeight }}px;'>
+      <image class='videoCover' src='{{videoCover}}' style='width: {{ videoWidth }}px; height: {{ videoHeight }}px'></image>
+      <image class='videoPlay' src='{{videoPlay}}' bindtap='playVideo' ></image>
+      <video class='index-video' wx:if='{{ autoplay }}' autoplay='{{ autoplay }}' src="{{videoSrc}}" style='width: {{ videoWidth }}px; height: {{ videoHeight }}px'></video>
+      <image class="video-bottom" src='{{videoBottom}}' ></image>
+      <view class='lrImages' >
+        <image class='lrImages-l animatedDelay slideInLeft animated' src='{{indexImage2}}'></image>
+        <image class='lrImages-r animatedDelay slideInRight animated' src='{{indexImage2}}'></image>
+      </view>
+    </view>
+  </view>
+  <view class='bottom'>
+    <navigator url='{{ url }}' class='bottom-mobile animatedDelay slideInLeft animated'>
+      <view hidden='{{ show }}' class='b-m-image'></view>
+      <!--<canvas canvas-id='mobile'></canvas>-->
+      <view class='test-out'>
+        <view class='{{ show ? "test":""}}'>
+          <image src='{{ showImage }}' mode='{{ imageMode }}'></image>
+        </view>
+      </view>
+    </navigator>
+    <navigator url='{{ url }}' class='bottom-letter animatedDelay slideInRight animated'>
+      <view hidden='{{ show }}' class='b-l-image'></view>
+      <!--<canvas canvas-id='letter'></canvas>-->
+      <view class='test-out'>
+        <view class='{{ show ? "test":""}}'>
+          <image src='{{ showImage2 }}' mode='{{ imageMode }}'></image>
+        </view>
+      </view>
+    </navigator>
+  </view>
+</view>
